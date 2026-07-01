@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { THANK_YOU_WALL, Contribution } from "@/lib/constants";
+import DepoimentoForm from "./DepoimentoForm";
 
 function formatBRL(value: number) {
   return value.toLocaleString("pt-BR", {
@@ -104,8 +105,7 @@ export default function ThankYouWall() {
   const contributions = [...THANK_YOU_WALL].sort((a, b) => b.amount - a.amount);
   const total = contributions.reduce((sum, c) => sum + c.amount, 0);
   const count = contributions.length;
-
-  if (count === 0) return null;
+  const hasContributions = count > 0;
 
   return (
     <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8">
@@ -126,49 +126,69 @@ export default function ThankYouWall() {
           </p>
         </div>
 
-        {/* Stats bar — social proof */}
-        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-12">
-          <div className="flex flex-col items-center bg-gradient-to-br from-bia-fuchsia to-bia-rose text-white rounded-2xl px-8 py-4 shadow-lg shadow-bia-rose/30 min-w-[160px]">
-            <span className="text-3xl sm:text-4xl font-extrabold leading-none">
-              <AnimatedTotal target={total} />
-            </span>
-            <span className="text-xs font-medium uppercase tracking-widest mt-1 text-white/80">
-              já arrecadados
-            </span>
-          </div>
-          <div className="flex flex-col items-center bg-white/70 border border-bia-blush rounded-2xl px-8 py-4 shadow-sm min-w-[140px]">
-            <span className="text-3xl sm:text-4xl font-extrabold text-bia-deep leading-none">
-              {count}
-            </span>
-            <span className="text-xs font-medium uppercase tracking-widest mt-1 text-bia-deep/50">
-              {count === 1 ? "pessoa querida" : "pessoas queridas"}
-            </span>
-          </div>
-        </div>
+        {hasContributions ? (
+          <>
+            {/* Stats bar — social proof */}
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-12">
+              <div className="flex flex-col items-center bg-gradient-to-br from-bia-fuchsia to-bia-rose text-white rounded-2xl px-8 py-4 shadow-lg shadow-bia-rose/30 min-w-[160px]">
+                <span className="text-3xl sm:text-4xl font-extrabold leading-none">
+                  <AnimatedTotal target={total} />
+                </span>
+                <span className="text-xs font-medium uppercase tracking-widest mt-1 text-white/80">
+                  já arrecadados
+                </span>
+              </div>
+              <div className="flex flex-col items-center bg-white/70 border border-bia-blush rounded-2xl px-8 py-4 shadow-sm min-w-[140px]">
+                <span className="text-3xl sm:text-4xl font-extrabold text-bia-deep leading-none">
+                  {count}
+                </span>
+                <span className="text-xs font-medium uppercase tracking-widest mt-1 text-bia-deep/50">
+                  {count === 1 ? "pessoa querida" : "pessoas queridas"}
+                </span>
+              </div>
+            </div>
 
-        {/* Contributions grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-          {contributions.map((item, i) => (
-            <ContributionCard key={`${item.name}-${i}`} item={item} rank={i} />
-          ))}
-        </div>
+            {/* Contributions grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+              {contributions.map((item, i) => (
+                <ContributionCard key={`${item.name}-${i}`} item={item} rank={i} />
+              ))}
+            </div>
+          </>
+        ) : (
+          /* Empty state — invites the first testimonial */
+          <div className="flex flex-col items-center text-center gap-3 mb-4 py-8">
+            <span className="text-5xl">🌷</span>
+            <p className="text-bia-deep/70 text-lg font-light max-w-md">
+              O mural ainda está esperando a primeira mensagem de carinho.
+              <span className="block text-bia-deep/50 text-base mt-1">
+                Seja você a começar essa corrente de amor. 💕
+              </span>
+            </p>
+          </div>
+        )}
 
-        {/* Gentle nudge to contribute */}
-        <div className="mt-12 text-center">
-          <p className="text-bia-deep/70 text-lg font-light mb-5 max-w-xl mx-auto">
-            Quer deixar o seu carinho nesse mural também?
-            <span className="block text-bia-deep/50 text-base mt-1">
-              Faça o seu PIX e faça parte dessa corrente de amor. 💕
-            </span>
-          </p>
-          <a
-            href="#presentes"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-bia-fuchsia to-bia-rose text-white font-semibold px-8 py-3.5 rounded-full shadow-md shadow-bia-rose/30 hover:shadow-bia-rose/50 hover:scale-105 active:scale-95 transition-all duration-200"
-          >
-            <span>✨</span>
-            Quero presentear também
-          </a>
-        </div>
+        {hasContributions && (
+          /* Gentle nudge to contribute */
+          <div className="mt-12 text-center">
+            <p className="text-bia-deep/70 text-lg font-light mb-5 max-w-xl mx-auto">
+              Quer deixar o seu carinho nesse mural também?
+              <span className="block text-bia-deep/50 text-base mt-1">
+                Faça o seu PIX e faça parte dessa corrente de amor. 💕
+              </span>
+            </p>
+            <a
+              href="#presentes"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-bia-fuchsia to-bia-rose text-white font-semibold px-8 py-3.5 rounded-full shadow-md shadow-bia-rose/30 hover:shadow-bia-rose/50 hover:scale-105 active:scale-95 transition-all duration-200"
+            >
+              <span>✨</span>
+              Quero presentear também
+            </a>
+          </div>
+        )}
+
+        {/* Testimonial form */}
+        <DepoimentoForm />
       </div>
     </section>
   );
