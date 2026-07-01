@@ -5,6 +5,11 @@ export const EVENT_DATE = new Date("2026-07-25T19:00:00-03:00");
 // PIX key — paste your PIX key here (phone, CPF, email or random key)
 export const PIX_KEY = "";
 
+// WhatsApp que recebe os depoimentos do mural.
+// Formato: código do país + DDD + número, SÓ números.
+// Exemplo (Brasil, DDD 11): "5511999998888"
+export const WHATSAPP_NUMBER = "";
+
 // YouTube video IDs — paste only the ID part from the video URL
 // Example: for https://www.youtube.com/watch?v=dQw4w9WgXcQ, use 'dQw4w9WgXcQ'
 export const YOUTUBE_VIDEOS = {
