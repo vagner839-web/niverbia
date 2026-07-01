@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import VideoSection from "@/components/VideoSection";
+import GiftListSection from "@/components/GiftListSection";
 import GiftSection from "@/components/GiftSection";
 
 export default function Page() {
@@ -7,6 +8,7 @@ export default function Page() {
     <main>
       <Hero />
       <VideoSection />
+      <GiftListSection />
       <GiftSection />
 
       {/* Footer */}
