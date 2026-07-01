@@ -77,7 +77,7 @@ export default function GiftSection() {
             <span className="text-2xl">🎁</span>
             <div className="flex-1 h-px bg-bia-rose/30" />
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-bia-deep text-center">
+          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-bia-deep text-center">
             Presentes
           </h2>
         </div>

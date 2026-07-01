@@ -48,7 +48,7 @@ export default function VideoSection() {
   const videos: VideoCardProps[] = [
     {
       title: "Convite",
-      description: "Uma mensagem especial da Bia para você",
+      description: "Uma mensagem especial da Beatriz para você",
       videoId: YOUTUBE_VIDEOS.invitation,
       icon: "💌",
     },
@@ -60,7 +60,7 @@ export default function VideoSection() {
     },
     {
       title: "Lista de Presentes",
-      description: "Tudo que a Bia adoraria receber",
+      description: "Tudo que a Beatriz adoraria receber",
       videoId: YOUTUBE_VIDEOS.giftList,
       icon: "🎁",
     },
@@ -76,11 +76,11 @@ export default function VideoSection() {
             <span className="text-2xl">🎬</span>
             <div className="flex-1 h-px bg-bia-rose/30" />
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-bia-deep text-center">
+          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-bia-deep text-center">
             Assista aos Vídeos
           </h2>
           <p className="text-bia-deep/50 text-center max-w-md">
-            A Bia preparou mensagens especiais para você. Assista e saiba todos os detalhes da festa.
+            A Beatriz preparou mensagens especiais para você. Assista e saiba todos os detalhes da festa.
           </p>
         </div>
 
