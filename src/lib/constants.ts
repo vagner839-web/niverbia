@@ -29,3 +29,60 @@ export const EVENT_LOCATION = {
   // Link do Google Maps (opcional) — cole aqui para ativar o botão "Ver no mapa"
   mapsUrl: "",
 };
+
+// ─────────────────────────────────────────────────────────────
+// Lista de Presentes 🎁
+// Organize por categoria. Para cada item:
+//   icon   → emoji do item
+//   name   → nome do presente
+//   detail → descrição/tamanho (opcional)
+//   brand  → marca/loja (opcional)
+// Adicione ou remova itens à vontade — o site atualiza sozinho.
+// ─────────────────────────────────────────────────────────────
+export interface GiftItem {
+  icon: string;
+  name: string;
+  detail?: string;
+  brand?: string;
+}
+
+export interface GiftCategory {
+  icon: string;
+  title: string;
+  items: GiftItem[];
+}
+
+export const GIFT_LIST: GiftCategory[] = [
+  {
+    icon: "🎀",
+    title: "Perfumaria & Cuidados Pessoais",
+    items: [
+      {
+        icon: "🌸",
+        name: "Kit Natura Tododia Flores",
+        detail:
+          "Creme Corporal Nutritivo 400 ml + Body Splash Flor de Pêssego e Jasmim 200 ml",
+      },
+      {
+        icon: "🍇",
+        name: "Body Splash Natura Tododia Amora Vermelha e Jabuticaba",
+        detail: "200 ml",
+      },
+      {
+        icon: "🌷",
+        name: "Perfume Natura Una Blush",
+      },
+      {
+        icon: "💜",
+        name: "Body Splash Nativa SPA Orquídea Noire",
+        brand: "O Boticário",
+      },
+      {
+        icon: "💖",
+        name: "Body Splash Cuide-se Bem Beijinho",
+        brand: "O Boticário",
+      },
+    ],
+  },
+];
+
