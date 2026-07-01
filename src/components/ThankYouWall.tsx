@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { THANK_YOU_WALL, Contribution } from "@/lib/constants";
 import DepoimentoForm from "./DepoimentoForm";
 
@@ -11,44 +10,6 @@ function formatBRL(value: number) {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   });
-}
-
-// Animated count-up for the total raised — creates a "wow" effect on scroll
-function AnimatedTotal({ target }: { target: number }) {
-  const [value, setValue] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const started = useRef(false);
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-
-    const runAnimation = () => {
-      if (started.current) return;
-      started.current = true;
-      const duration = 1400;
-      const start = performance.now();
-      function tick(now: number) {
-        const progress = Math.min((now - start) / duration, 1);
-        // easeOutCubic
-        const eased = 1 - Math.pow(1 - progress, 3);
-        setValue(Math.round(target * eased));
-        if (progress < 1) requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-    };
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) runAnimation();
-      },
-      { threshold: 0.3 }
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, [target]);
-
-  return <span ref={ref}>{formatBRL(value)}</span>;
 }
 
 function ContributionCard({ item, rank }: { item: Contribution; rank: number }) {
@@ -103,7 +64,6 @@ function ContributionCard({ item, rank }: { item: Contribution; rank: number }) 
 export default function ThankYouWall() {
   // Sort by amount (highest first) so generous gifts lead — inspires others
   const contributions = [...THANK_YOU_WALL].sort((a, b) => b.amount - a.amount);
-  const total = contributions.reduce((sum, c) => sum + c.amount, 0);
   const count = contributions.length;
   const hasContributions = count > 0;
 
@@ -128,21 +88,13 @@ export default function ThankYouWall() {
 
         {hasContributions ? (
           <>
-            {/* Stats bar — social proof */}
+            {/* Stats bar */}
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-12">
-              <div className="flex flex-col items-center bg-gradient-to-br from-bia-fuchsia to-bia-rose text-white rounded-2xl px-8 py-4 shadow-lg shadow-bia-rose/30 min-w-[160px]">
+              <div className="flex flex-col items-center bg-gradient-to-br from-bia-fuchsia to-bia-rose text-white rounded-2xl px-10 py-4 shadow-lg shadow-bia-rose/30 min-w-[160px]">
                 <span className="text-3xl sm:text-4xl font-extrabold leading-none">
-                  <AnimatedTotal target={total} />
-                </span>
-                <span className="text-xs font-medium uppercase tracking-widest mt-1 text-white/80">
-                  já arrecadados
-                </span>
-              </div>
-              <div className="flex flex-col items-center bg-white/70 border border-bia-blush rounded-2xl px-8 py-4 shadow-sm min-w-[140px]">
-                <span className="text-3xl sm:text-4xl font-extrabold text-bia-deep leading-none">
                   {count}
                 </span>
-                <span className="text-xs font-medium uppercase tracking-widest mt-1 text-bia-deep/50">
+                <span className="text-xs font-medium uppercase tracking-widest mt-1 text-white/80">
                   {count === 1 ? "pessoa querida" : "pessoas queridas"}
                 </span>
               </div>
