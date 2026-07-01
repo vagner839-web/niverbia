@@ -68,7 +68,7 @@ function PixCard() {
 
 export default function GiftSection() {
   return (
-    <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent to-bia-blush/20">
+    <section id="presentes" className="scroll-mt-8 py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent to-bia-blush/20">
       <div className="max-w-3xl mx-auto">
         {/* Section header */}
         <div className="flex flex-col items-center gap-4 mb-12">
