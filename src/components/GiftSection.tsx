@@ -113,20 +113,6 @@ export default function GiftSection() {
 
         {/* PIX Card */}
         <PixCard />
-
-        {/* After PIX → invite to leave a testimonial */}
-        <div className="mt-10 text-center">
-          <p className="text-bia-deep/60 text-base mb-4">
-            Já fez o seu PIX? Deixe um recado carinhoso no mural 💌
-          </p>
-          <a
-            href="#depoimento"
-            className="inline-flex items-center gap-2 border-2 border-bia-rose/40 text-bia-deep font-semibold px-7 py-3 rounded-full hover:bg-bia-rose/10 hover:border-bia-rose transition-all duration-200"
-          >
-            <span>✍️</span>
-            Deixar meu depoimento
-          </a>
-        </div>
       </div>
     </section>
   );
