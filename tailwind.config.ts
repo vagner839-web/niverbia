@@ -5,14 +5,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "bia-light": "#FFF1F2",
-        "bia-blush": "#FECDD3",
-        "bia-rose": "#FF6B9D",
-        "bia-fuchsia": "#D946EF",
-        "bia-deep": "#9D174D",
+        "bia-light": "#FBF6F1",   // creme (papel)
+        "bia-blush": "#F4D6DD",   // rosa suave
+        "bia-rose": "#DC7C92",    // rosê principal
+        "bia-fuchsia": "#C75E79", // rosê profundo
+        "bia-deep": "#A8425A",    // rosê escuro (textos)
       },
       fontFamily: {
+        script: ["Great Vibes", "cursive"],
         dancing: ["Dancing Script", "cursive"],
+        serif: ["Cormorant Garamond", "serif"],
         nunito: ["Nunito", "sans-serif"],
       },
       keyframes: {
@@ -25,8 +27,8 @@ const config: Config = {
           "100%": { backgroundPosition: "200% center" },
         },
         glow: {
-          "0%, 100%": { boxShadow: "0 0 8px 2px rgba(217,70,239,0.15)" },
-          "50%": { boxShadow: "0 0 22px 6px rgba(217,70,239,0.35)" },
+          "0%, 100%": { boxShadow: "0 0 8px 2px rgba(220,124,146,0.12)" },
+          "50%": { boxShadow: "0 0 20px 5px rgba(220,124,146,0.28)" },
         },
         fadeUp: {
           "0%": { opacity: "0", transform: "translateY(24px)" },
@@ -38,10 +40,10 @@ const config: Config = {
         },
       },
       animation: {
-        float: "float 4s ease-in-out infinite",
-        shimmer: "shimmer 3s linear infinite",
-        glow: "glow 2s ease-in-out infinite",
-        "fade-up": "fadeUp 0.7s ease-out forwards",
+        float: "float 5s ease-in-out infinite",
+        shimmer: "shimmer 4s linear infinite",
+        glow: "glow 2.4s ease-in-out infinite",
+        "fade-up": "fadeUp 0.8s ease-out forwards",
         pulse2: "pulse2 2s ease-in-out infinite",
       },
     },

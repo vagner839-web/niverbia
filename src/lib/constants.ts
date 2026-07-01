@@ -13,6 +13,19 @@ export const YOUTUBE_VIDEOS = {
   giftList: "",   // Vídeo sobre a lista de presentes
 };
 
-export const PERSON_NAME = "Bia Brito";
-export const EVENT_DATE_DISPLAY = "25 de julho de 2026";
-export const EVENT_TIME_DISPLAY = "19h";
+export const PERSON_NAME = "Beatriz";
+export const EVENT_AGE = "15";
+export const EVENT_DATE_DISPLAY = "25/07/2026";
+export const EVENT_TIME_DISPLAY = "19:00";
+
+// Local do evento
+export const EVENT_LOCATION = {
+  lines: [
+    "Estrada do Coco,",
+    "Condomínio Jardim dos Pássaros,",
+    "Casa 7, Lote 13",
+  ],
+  reference: "Ao lado do Assaí",
+  // Link do Google Maps (opcional) — cole aqui para ativar o botão "Ver no mapa"
+  mapsUrl: "",
+};
