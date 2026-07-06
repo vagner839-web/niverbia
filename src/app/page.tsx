@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import VideoSection from "@/components/VideoSection";
 import GiftListSection from "@/components/GiftListSection";
 import GiftSection from "@/components/GiftSection";
 
@@ -7,7 +6,6 @@ export default function Page() {
   return (
     <main>
       <Hero />
-      <VideoSection />
       <GiftListSection />
       <GiftSection />
 
