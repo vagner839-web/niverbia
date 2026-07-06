@@ -2,8 +2,11 @@
 
 export const EVENT_DATE = new Date("2026-07-25T19:00:00-03:00");
 
-// PIX key — paste your PIX key here (phone, CPF, email or random key)
-export const PIX_KEY = "";
+// PIX — chave (CPF), tipo e titular
+export const PIX_KEY = "08130767570"; // valor copiado (só números, mais compatível)
+export const PIX_KEY_TYPE = "CPF";
+export const PIX_KEY_DISPLAY = "081.307.675-70"; // como aparece na tela
+export const PIX_NAME = "Beatriz Barbosa Brito";
 
 // YouTube video IDs — paste only the ID part from the video URL
 // Example: for https://www.youtube.com/watch?v=dQw4w9WgXcQ, use 'dQw4w9WgXcQ'

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { PIX_KEY } from "@/lib/constants";
+import { PIX_KEY, PIX_KEY_TYPE, PIX_KEY_DISPLAY, PIX_NAME } from "@/lib/constants";
 
 function PixCard() {
   const [copied, setCopied] = useState(false);
@@ -26,12 +26,19 @@ function PixCard() {
 
         <div className="text-center">
           <p className="text-xs font-semibold uppercase tracking-widest text-bia-deep/40 mb-1">
-            Chave PIX
+            Chave PIX {PIX_KEY && PIX_KEY_TYPE ? `· ${PIX_KEY_TYPE}` : ""}
           </p>
           {PIX_KEY ? (
-            <p className="font-mono text-xl font-semibold text-bia-deep break-all">
-              {PIX_KEY}
-            </p>
+            <>
+              <p className="font-mono text-xl font-semibold text-bia-deep break-all">
+                {PIX_KEY_DISPLAY || PIX_KEY}
+              </p>
+              {PIX_NAME && (
+                <p className="mt-2 font-serif text-bia-deep/70 text-base">
+                  {PIX_NAME}
+                </p>
+              )}
+            </>
           ) : (
             <p className="font-mono text-base text-bia-deep/30 italic">
               Chave em breve
