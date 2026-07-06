@@ -8,14 +8,6 @@ export const PIX_KEY_TYPE = "CPF";
 export const PIX_KEY_DISPLAY = "081.307.675-70"; // como aparece na tela
 export const PIX_NAME = "Beatriz Barbosa Brito";
 
-// YouTube video IDs — paste only the ID part from the video URL
-// Example: for https://www.youtube.com/watch?v=dQw4w9WgXcQ, use 'dQw4w9WgXcQ'
-export const YOUTUBE_VIDEOS = {
-  invitation: "", // Vídeo de convite
-  location: "",   // Vídeo sobre o local
-  giftList: "",   // Vídeo sobre a lista de presentes
-};
-
 export const PERSON_NAME = "Beatriz";
 export const EVENT_AGE = "15";
 export const EVENT_DATE_DISPLAY = "25/07/2026";
