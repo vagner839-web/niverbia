@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { EVENT_DATE } from "@/lib/constants";
+import { OFFER_DEADLINE } from "@/lib/product";
 
 interface TimeLeft {
   days: number;
@@ -11,7 +11,7 @@ interface TimeLeft {
 }
 
 function getTimeLeft(): TimeLeft | null {
-  const diff = EVENT_DATE.getTime() - Date.now();
+  const diff = OFFER_DEADLINE.getTime() - Date.now();
   if (diff <= 0) return null;
   return {
     days: Math.floor(diff / (1000 * 60 * 60 * 24)),
@@ -28,12 +28,12 @@ function pad(n: number) {
 function Unit({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col items-center gap-2">
-      <div className="bg-white/60 backdrop-blur-sm border border-bia-rose/30 rounded-2xl px-5 py-4 min-w-[80px] text-center shadow-md animate-glow">
-        <span className="text-4xl sm:text-5xl font-bold text-bia-fuchsia tabular-nums">
+      <div className="bg-arc-surface2/80 backdrop-blur-sm border border-arc-gold/25 rounded-2xl px-5 py-4 min-w-[76px] text-center shadow-md animate-glow">
+        <span className="text-3xl sm:text-4xl font-bold text-arc-gold tabular-nums">
           {value}
         </span>
       </div>
-      <span className="text-xs font-semibold uppercase tracking-widest text-bia-deep/60">
+      <span className="text-[11px] font-semibold uppercase tracking-widest text-arc-muted">
         {label}
       </span>
     </div>
@@ -51,14 +51,14 @@ export default function CountdownTimer() {
     return () => clearInterval(id);
   }, []);
 
-  // Server render / first paint: skeleton
+  // Server render / primeira pintura: skeleton
   if (timeLeft === undefined) {
     return (
-      <div className="flex gap-4 justify-center">
+      <div className="flex gap-3 sm:gap-4 justify-center">
         {["Dias", "Horas", "Min", "Seg"].map((label) => (
           <div key={label} className="flex flex-col items-center gap-2">
-            <div className="bg-white/40 border border-bia-rose/20 rounded-2xl px-5 py-4 min-w-[80px] h-[80px] animate-pulse" />
-            <span className="text-xs font-semibold uppercase tracking-widest text-bia-deep/40">
+            <div className="bg-arc-surface2/50 border border-arc-line rounded-2xl px-5 py-4 min-w-[76px] h-[72px] animate-pulse" />
+            <span className="text-[11px] font-semibold uppercase tracking-widest text-arc-muted/50">
               {label}
             </span>
           </div>
@@ -69,16 +69,16 @@ export default function CountdownTimer() {
 
   if (timeLeft === null) {
     return (
-      <div className="text-center py-4">
-        <p className="text-2xl font-bold text-bia-fuchsia animate-pulse2">
-          Chegou o grande dia! 🎉
+      <div className="text-center py-2">
+        <p className="text-xl font-bold text-arc-gold animate-pulse2">
+          A oferta terminou 🔒
         </p>
       </div>
     );
   }
 
   return (
-    <div className="flex gap-3 sm:gap-5 justify-center flex-wrap">
+    <div className="flex gap-3 sm:gap-4 justify-center flex-wrap">
       <Unit value={String(timeLeft.days)} label="Dias" />
       <Unit value={pad(timeLeft.hours)} label="Horas" />
       <Unit value={pad(timeLeft.minutes)} label="Min" />

@@ -12,35 +12,41 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  color: #F4F1FF;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #FBF6F1;
+  background: #100C1F;
 }
 ::-webkit-scrollbar-thumb {
-  background: #DC7C92;
+  background: #4A3F7A;
   border-radius: 3px;
 }
 
 @layer utilities {
-  /* Soft paper texture over the cream background */
-  .bg-paper {
-    background-color: #FBF6F1;
+  /* Fundo "cosmos": índigo profundo com auras suaves e textura granulada. */
+  .bg-cosmos {
+    background-color: #100C1F;
     background-image:
-      radial-gradient(circle at 20% 30%, rgba(220, 124, 146, 0.04) 0, transparent 40%),
-      radial-gradient(circle at 80% 70%, rgba(220, 124, 146, 0.04) 0, transparent 40%),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      radial-gradient(ellipse at 15% 0%, rgba(139, 123, 232, 0.16) 0, transparent 45%),
+      radial-gradient(ellipse at 85% 100%, rgba(232, 195, 126, 0.10) 0, transparent 45%),
+      radial-gradient(ellipse at 50% 50%, rgba(36, 30, 69, 0.35) 0, transparent 70%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
   }
 
-  .text-shimmer {
+  /* Texto dourado com brilho animado (títulos). */
+  .text-gold {
     background: linear-gradient(
       90deg,
-      #A8425A 0%,
-      #DC7C92 30%,
-      #E9A6B4 50%,
-      #DC7C92 70%,
-      #A8425A 100%
+      #C9A24B 0%,
+      #E8C37E 30%,
+      #F5E4B8 50%,
+      #E8C37E 70%,
+      #C9A24B 100%
     );
     background-size: 200% auto;
     background-clip: text;

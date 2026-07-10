@@ -1,19 +1,13 @@
-import Hero from "@/components/Hero";
-import GiftListSection from "@/components/GiftListSection";
-import GiftSection from "@/components/GiftSection";
+import Quiz from "@/components/Quiz";
+import { BRAND } from "@/lib/product";
 
 export default function Page() {
   return (
-    <main>
-      <Hero />
-      <GiftListSection />
-      <GiftSection />
+    <main className="bg-cosmos min-h-screen">
+      <Quiz />
 
-      {/* Footer */}
-      <footer className="py-8 text-center text-bia-deep/40 text-sm border-t border-bia-rose/10">
-        <p className="font-serif italic text-base">
-          Feito com <span className="text-bia-rose">♥</span> para a Beatriz · 2026
-        </p>
+      <footer className="py-8 text-center text-arc-muted/50 text-sm border-t border-arc-line">
+        <p className="font-serif italic text-base">{BRAND.name} · {new Date().getFullYear()}</p>
       </footer>
     </main>
   );
